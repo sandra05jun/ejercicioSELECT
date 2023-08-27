@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas SQL</title>
+</head>
+<body>
+    <h1>Ejercicio 5: Consultas SQL</h1>
+    
+    <h4>1. Selecciona las columnas film_id y title de la tabla film</h4>
+    <p>R: SELECT film_id, title FROM film; </p>
+    <img src="./Imagenes_SQL/Ejerci_1.jpg" width=450px alt="busqueda 1">
+
+    <h4>2. Selecciona 5 filas de la tabla film, obteniendo todas las columnas.
+    </h4>
+    <p>R: SELECT * FROM film LIMT 5; </p>
+    <img src="./Imagenes_SQL/Ejerci_2.jpg" width=450px alt="busqueda 1">
+
+    <h4>3. Selecciona filas de la tabla film donde film_id sea menor que 4.</h4>
+    <p>R: SELECT * FROM film WHERE film_id < 4; </p>
+    <img src="./Imagenes_SQL/Ejerci_3.jpg" width=450px alt="busqueda 1">
+
+    <h4>4. Selecciona filas de la tabla film donde el rating sea PG o G.</h4>
+    <p>R: SELECT * FROM film WHERE rating = 'PG' OR rating ='G'; </p>
+    <img src="./Imagenes_SQL/Ejerci_4.jpg" width=450px alt="busqueda 1">
+
+    <h4>5. Selecciona filas de la tabla actor donde el nombre sea Angela, Angelina o Audrey usando IN.</h4>
+    <p>R: SELECT * FROM actor WHERE first_name IN('Angela', 'Angelina', 'Audrey'); </p>
+    <img src="./Imagenes_SQL/Ejerci_5.jpg" width=450px alt="busqueda 1">
+
+    <h4>6. Obtén una lista de actores con el nombre Julia.</h4>
+    <p>R: SELECT * FROM actor WHERE first_name = 'Julia'; </p>
+    <img src="./Imagenes_SQL/Ejerci_6.jpg" width=450px alt="busqueda 1">
+
+    <h4>7. Obtén una lista de actores con los nombres Chris, Cameron o Cuba.</h4>
+    <p>R: SELECT * FROM actor WHERE first_name IN('Chris', 'Cameron', 'Cuba'); </p>
+    <img src="./Imagenes_SQL/Ejerci_7.jpg" width=450px alt="busqueda 1">
+
+    <h4>8. Selecciona la fila de la tabla customer para el cliente con el nombre Jamie Rice.</h4>
+    <p>R: SELECT * FROM customer WHERE first_name = 'Jamie' AND last_name = 'Rice' ; </p>
+    <img src="./Imagenes_SQL/Ejerci_8.jpg" width=450px alt="busqueda 1">
+
+    <h4>9. Selecciona el monto y la fecha de pago de la tabla payment donde el monto pagado sea menor a $1.
+    </h4>
+    <p>R: SELECT amount, payment_date FROM payment WHERE amount <= 1; </p>
+    <img src="./Imagenes_SQL/Ejerci_9.jpg" width=450px alt="busqueda 1">
+ 
+    <h4>10. ¿Cuáles son las diferentes duraciones de alquiler permitidas por la tienda?
+    </h4>
+    <p>R: SELECT * FROM store; </p>
+    <img src="./Imagenes_SQL/Ejerci_9.jpg" width=450px alt="busqueda 1">
+ 
+    <h4>11.Ordena las filas en la tabla city por country_id y luego por city.
+    </h4>
+    <p>R: SELECT * FROM city ORDER BY country_id, city; </p>
+    <img src="./Imagenes_SQL/Ejerci_11.jpg" width=450px alt="busqueda 1">
+  
+    <h4>12. ¿Cuáles son los ID de los últimos 3 clientes que devolvieron un alquiler?
+    </h4>
+    <p>R: SELECT rental_id, return_date FROM rental WHERE return_date IS NOT NULL 
+        ORDER BY return_date DESC LIMIT 3; </p>
+    <img src="./Imagenes_SQL/Ejerci_12.jpg" width=450px alt="busqueda 1">
+  
+    <h4>13. ¿Cuántas películas tienen clasificación NC-17? ¿Cuántas tienen clasificación PG o PG-13?
+    </h4>
+    <p>R: SELECT rating, COUNT(rating) FROM film WHERE rating IN ('NC-17', 'PG', 'PG-13')
+        GROUP BY rating; </p>
+    <img src="./Imagenes_SQL/Ejerci_13.jpg" width=450px alt="busqueda 1">
+  
+    <h4>14. ¿Cuántos clientes diferentes tienen registros en la tabla rental?
+    </h4>
+    <p>R: SELECT COUNT (DISTINCT customer_id) FROM rental; </p>
+    <img src="./Imagenes_SQL/Ejerci_14.jpg" width=450px alt="busqueda 1">
+  
+    <h4>20. Selecciona los 10 actores que tienen los nombres más largos (nombre y apellido combinados). -->
+    </h4>
+    <p>R: SELECT first_name, last_name, LENGTH(first_name || last_name) AS len 
+        FROM actor ORDER BY len DESC LIMIT 10; </p>
+    <img src="./Imagenes_SQL/Ejerci_20.jpg" width=450px alt="busqueda 1">
+  
+
+
+</body>
+</html>
+
+<!-- 
+¿Hay algún cliente con el mismo apellido?
+¿Qué película (id) tiene la mayor cantidad de actores?
+¿Qué actor (id) aparece en la mayor cantidad de películas?
+Cuenta el número de ciudades para cada country_id en la tabla city. Ordena los resultados por count(*).
+¿Cuál es la tarifa de alquiler promedio de las películas? ¿Puedes redondear el resultado a 2 decimales?
